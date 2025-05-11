@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema Solare</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    video#bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    /* Container pulsanti in basso */
+    .bottom-buttons {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    /* Stile dei pulsanti */
+    .bottom-buttons a {
+      background-color: #001F3F; /* blu molto scuro */
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .bottom-buttons a:hover {
+      background-color: #003366;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VIDEO DI SFONDO -->
+  <video autoplay muted loop id="bg-video">
+    <source src="immagini\video home definitivo.mp4" type="video/mp4">
+    Il tuo browser non supporta i video HTML5.
+  </video>
+
+  <!-- PULSANTI IN FONDO -->
+  <div class="bottom-buttons">
+    <a href="pianeti.html">Pianeti</a>
+    <a href="corpi-esterni.html">Corpi Esterni</a>
+    <a href="sole.html">Sole</a>
+  </div>
+
+</body>
+</html>
