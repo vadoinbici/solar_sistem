@@ -37,25 +37,26 @@
     .carousel {
       display: flex;
       transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-      width: calc(100% * 8); /* Moltiplica per il numero di pianeti */
-      padding: 0;
+      width: calc(100% * 11); /* 1 invisibile + 9 pianeti + 1 invisibile */
     }
 
     .planet-card {
       position: relative;
-      flex: 0 0 60%; /* Ogni pianeta occupa il 60% della larghezza */
-      margin: 0 20px; /* Distanza tra i pianeti per far vedere parzialmente i vicini */
+      flex: 0 0 50%;
       text-align: center;
       opacity: 0.6;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
+    /* Pianeta attivo (centrale) con effetto di zoom e illuminazione */
     .planet-card.active {
       opacity: 1;
-      transform: scale(1.1); /* Effetto zoom per il pianeta attivo */
+      transform: scale(1.1);
+      filter: brightness(1.5); /* Aumenta la luminosità per l'illuminazione */
     }
 
-    .planet-card video {
+    .planet-card video,
+    .planet-card img {
       width: 100%;
       height: 70vh;
       object-fit: contain;
@@ -68,8 +69,13 @@
       color: #FFD700;
     }
 
+    .invisible {
+      flex: 0 0 25%;
+      visibility: hidden;
+    }
+
     .nav-buttons {
-      display: none; /* Rimuove le frecce visive */
+      display: none;
     }
   </style>
 </head>
@@ -82,10 +88,21 @@
 
   <div class="carousel-container">
     <div class="carousel">
+      <!-- Spazio invisibile a sinistra -->
+      <div class="planet-card invisible"></div>
+
+      <!-- Sole -->
+      <div class="planet-card">
+        <img src="immagini/sole.jpg" alt="Sole" />
+        <div class="planet-name">Sole</div>
+      </div>
+
+      <!-- Mercurio -->
       <div class="planet-card">
         <video src="immagini/rotazione pianeti/mercurio rotazione.mp4" autoplay muted loop playsinline></video>
         <div class="planet-name">Mercurio</div>
       </div>
+
       <div class="planet-card">
         <video src="immagini/rotazione pianeti/venere rotazione.mp4" autoplay muted loop playsinline></video>
         <div class="planet-name">Venere</div>
@@ -114,23 +131,37 @@
         <video src="immagini/rotazione pianeti/nettuno rotazione.mp4" autoplay muted loop playsinline></video>
         <div class="planet-name">Nettuno</div>
       </div>
+
+      <!-- Spazio invisibile dopo Nettuno -->
+      <div class="planet-card invisible"></div>
     </div>
   </div>
 
   <script>
     const carousel = document.querySelector('.carousel');
     const cards = document.querySelectorAll('.planet-card');
-    let index = 0;
+    let index = 1; // Inizia con Mercurio visibile (dopo Sole)
 
-    // Funzione per aggiornare la posizione del carosello
+    const totalCards = cards.length;
+
+    // Funzione per aggiornare il carosello e il pianeta attivo
     function updateCarousel() {
-      const cardWidth = cards[0].offsetWidth;
+      const cardWidth = cards[1].offsetWidth;
       carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+
+      // Rimuovi la classe 'active' da tutti i pianeti
+      cards.forEach(card => card.classList.remove('active'));
+
+      // Aggiungi la classe 'active' al pianeta alla posizione corretta
+      // La posizione corretta è sempre l'elemento alla posizione (index + 1) (salta il Sole)
+      if (index + 1 < totalCards) {
+        cards[index + 1].classList.add('active'); // Pianeta a destra del Sole
+      }
     }
 
     // Funzione per andare al pianeta successivo
     function nextPlanet() {
-      if (index < cards.length - 1) {
+      if (index < totalCards - 3) {
         index++;
         updateCarousel();
       }
@@ -138,19 +169,17 @@
 
     // Funzione per tornare al pianeta precedente
     function prevPlanet() {
-      if (index > 0) {
+      if (index > 1) {
         index--;
         updateCarousel();
       }
     }
 
-    // Event listener per la tastiera
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') nextPlanet();
       if (e.key === 'ArrowLeft') prevPlanet();
     });
 
-    // Imposta la posizione iniziale del carosello
     window.addEventListener('load', updateCarousel);
   </script>
 
