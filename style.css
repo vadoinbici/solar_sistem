@@ -1,0 +1,117 @@
+/* STILE GENERALE */
+body {
+  margin: 0;
+  background-color: black;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+/* VIDEO DI SFONDO */
+#bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* PULSANTI BLU IN FONDO */
+.bottom-buttons {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+}
+
+.bottom-buttons a {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 25px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.bottom-buttons a:hover {
+  background-color: #0056b3;
+}
+
+/* CAROUSEL DEI PIANETI */
+.carousel-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.planet-card {
+  flex: 0 0 100vw;
+  text-align: center;
+  color: white;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.planet-card.active {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+
+.planet-card video {
+  width: 80%;
+  height: 70vh;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.planet-name {
+  margin-top: 10px;
+  font-size: 2rem;
+  color: #FFD700;
+}
+
+/* NAVIGAZIONE CAROUSEL */
+.nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 30px;
+  z-index: 2;
+}
+
+.nav-buttons button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

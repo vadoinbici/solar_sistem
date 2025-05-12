@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pianeti</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Solare - Pianeti (Carosello)</title>
   <style>
     body {
       margin: 0;
@@ -13,164 +13,146 @@
       color: white;
     }
 
-    .container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    .planet-image {
-      max-width: 60%;
-      max-height: 60vh;
-      object-fit: contain;
-      margin-bottom: 20px;
-    }
-
-    .planet-name {
-      font-size: 2rem;
-      color: #FFD700;
-      margin-bottom: 10px;
-    }
-
-    .planet-description {
-      max-width: 600px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .nav-buttons {
+    #bg-video {
       position: absolute;
       top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 30px;
-    }
-
-    .nav-buttons button {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      border: none;
-      padding: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-
-    .nav-buttons button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     .carousel-container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.carousel {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transform-style: preserve-3d;
-}
+    .carousel {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+      width: calc(100% * 8); /* Moltiplica per il numero di pianeti */
+      padding: 0;
+    }
 
-.planet-card {
-    flex: 0 0 70vw;
-    margin: 0 2.5vw;
-    text-align: center;
-    color: white;
-  }
+    .planet-card {
+      position: relative;
+      flex: 0 0 60%; /* Ogni pianeta occupa il 60% della larghezza */
+      margin: 0 20px; /* Distanza tra i pianeti per far vedere parzialmente i vicini */
+      text-align: center;
+      opacity: 0.6;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-  .planet-card video {
-    width: 100%;
-    height: 80vh;
-    object-fit: contain;
-    border-radius: 20px;
-  }
+    .planet-card.active {
+      opacity: 1;
+      transform: scale(1.1); /* Effetto zoom per il pianeta attivo */
+    }
 
-  .planet-name {
-    margin-top: 10px;
-    font-size: 2rem;
-    color: white;
-  }
+    .planet-card video {
+      width: 100%;
+      height: 70vh;
+      object-fit: contain;
+      border-radius: 20px;
+    }
 
+    .planet-name {
+      margin-top: 10px;
+      font-size: 2rem;
+      color: #FFD700;
+    }
+
+    .nav-buttons {
+      display: none; /* Rimuove le frecce visive */
+    }
   </style>
 </head>
 <body>
+
+  <!-- Video di sfondo -->
+  <video autoplay muted loop id="bg-video">
+    <source src="immagini/space.mp4" type="video/mp4">
+  </video>
+
   <div class="carousel-container">
-    <div class="carousel" id="carousel">
-      <!-- I video dei pianeti verranno aggiunti via JavaScript -->
+    <div class="carousel">
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/mercurio rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Mercurio</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/venere rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Venere</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/marte rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Marte</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/terra rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Terra</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/giove rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Giove</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/saturno rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Saturno</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/urano rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Urano</div>
+      </div>
+      <div class="planet-card">
+        <video src="immagini/rotazione pianeti/nettuno rotazione.mp4" autoplay muted loop playsinline></video>
+        <div class="planet-name">Nettuno</div>
+      </div>
     </div>
   </div>
 
   <script>
-    const pianeti = [
-      { nome: "Mercurio", video: "immagini/NASAaa Rotazione Globale di Mercurio.mp4" },
-      { nome: "Venere", video: "immagini/venere.mp4" },
-      { nome: "Terra", video: "immagini/terra.mp4" },
-      { nome: "Marte", video: "immagini/video di marte.mp4" },
-      { nome: "Giove", video: "immagini/giove.mp4" },
-      { nome: "Saturno", video: "immagini/saturno.mp4" },
-      { nome: "Urano", video: "immagini/urano.mp4" },
-      { nome: "Nettuno", video: "immagini/nettuno.mp4" }
-    ];
+    const carousel = document.querySelector('.carousel');
+    const cards = document.querySelectorAll('.planet-card');
+    let index = 0;
 
-    const carousel = document.getElementById("carousel");
-    let currentIndex = 0;
-
-    function renderCarousel() {
-      carousel.innerHTML = "";
-      pianeti.forEach((p, i) => {
-        const div = document.createElement("div");
-        div.className = "planet-card";
-        if (i === currentIndex) div.classList.add("active");
-        div.innerHTML = `
-          <video src="${p.video}" autoplay muted loop></video>
-          <div class="planet-name">${p.nome}</div>
-        `;
-        carousel.appendChild(div);
-      });
-
-      const offset = -currentIndex * (70 + 5); // 70vw + margini
-      carousel.style.transform = `translateX(${offset}vw)`;
+    // Funzione per aggiornare la posizione del carosello
+    function updateCarousel() {
+      const cardWidth = cards[0].offsetWidth;
+      carousel.style.transform = `translateX(-${index * cardWidth}px)`;
     }
 
-    function next() {
-      currentIndex = (currentIndex + 1) % pianeti.length;
-      renderCarousel();
-    }
-
-    function prev() {
-      currentIndex = (currentIndex - 1 + pianeti.length) % pianeti.length;
-      renderCarousel();
-    }
-
-    let startX = 0;
-
-    function handleSwipe(start, end) {
-      const diff = start - end;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) next();
-        else prev();
+    // Funzione per andare al pianeta successivo
+    function nextPlanet() {
+      if (index < cards.length - 1) {
+        index++;
+        updateCarousel();
       }
     }
 
-    document.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    document.addEventListener("touchend", e => handleSwipe(startX, e.changedTouches[0].clientX));
+    // Funzione per tornare al pianeta precedente
+    function prevPlanet() {
+      if (index > 0) {
+        index--;
+        updateCarousel();
+      }
+    }
 
-    document.addEventListener("mousedown", e => startX = e.clientX);
-    document.addEventListener("mouseup", e => handleSwipe(startX, e.clientX));
+    // Event listener per la tastiera
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextPlanet();
+      if (e.key === 'ArrowLeft') prevPlanet();
+    });
 
-    renderCarousel();
+    // Imposta la posizione iniziale del carosello
+    window.addEventListener('load', updateCarousel);
   </script>
-</body>
-
 
 </body>
 </html>
