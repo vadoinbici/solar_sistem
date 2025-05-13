@@ -1,39 +1,20 @@
-const carousel = document.getElementById('carousel');
-const cards = document.querySelectorAll('.planet-card');
-let index = 0;
-
-function updateCarousel() {
-  const cardWidth = window.innerWidth;
-  carousel.style.transform = `translateX(${-index * cardWidth}px)`;
-
-  cards.forEach((card, i) => {
-    card.classList.toggle('active', i === index);
-  });
-}
-
-function nextPlanet() {
-  if (index < cards.length - 1) {
-    index++;
-    updateCarousel();
+// Funzione per mostrare o nascondere i paragrafi singolarmente in base alla posizione
+function toggleParagraphsOnScroll() {
+const paragraphs = document.querySelectorAll('.scroll-text p');
+paragraphs.forEach(paragraph => {
+  const rect = paragraph.getBoundingClientRect();
+  // Se è visibile nella viewport, mostralo
+  if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0) {
+    paragraph.classList.add('visible');
+  } else {
+    paragraph.classList.remove('visible');
   }
-}
-
-function prevPlanet() {
-  if (index > 0) {
-    index--;
-    updateCarousel();
-  }
-}
-
-// Navigazione con tastiera
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') nextPlanet();
-  if (e.key === 'ArrowLeft') prevPlanet();
 });
+}
 
-// Navigazione con pulsanti visibili a schermo
-document.getElementById('next').addEventListener('click', nextPlanet);
-document.getElementById('prev').addEventListener('click', prevPlanet);
+// All'avvio, nascondi tutto e verifica visibilità
+window.addEventListener('load', toggleParagraphsOnScroll);
 
-window.addEventListener('resize', updateCarousel);
-window.addEventListener('load', updateCarousel);
+// Aggiorna visibilità a ogni scroll
+window.addEventListener('scroll', toggleParagraphsOnScroll);
+                 

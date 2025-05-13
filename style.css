@@ -2,14 +2,19 @@
 body {
   margin: 0;
   background-color: black;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  overflow-y: auto;
   color: white;
+}
+
+/* Tonalità blu */
+:root {
+  --text-blue: #00BFFF;
 }
 
 /* VIDEO DI SFONDO */
 #bg-video {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -17,101 +22,157 @@ body {
   min-height: 100%;
   object-fit: cover;
   z-index: -1;
+  filter: brightness(0.4) contrast(1.2);
 }
 
-/* PULSANTI BLU IN FONDO */
-.bottom-buttons {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  z-index: 1;
-}
-
-.bottom-buttons a {
-  background-color: #007BFF;
-  color: white;
-  padding: 15px 25px;
-  text-decoration: none;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-}
-
-.bottom-buttons a:hover {
-  background-color: #0056b3;
-}
-
-/* CAROUSEL DEI PIANETI */
-.carousel-container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-  will-change: transform;
-}
-
-.planet-card {
-  flex: 0 0 100vw;
-  text-align: center;
-  color: white;
-  opacity: 0.5;
-  transform: scale(0.8);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.planet-card.active {
-  transform: scale(1.1);
-  opacity: 1;
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-}
-
-.planet-card video {
-  width: 80%;
-  height: 70vh;
-  object-fit: contain;
-  border-radius: 20px;
-}
-
-.planet-name {
-  margin-top: 10px;
-  font-size: 2rem;
-  color: #FFD700;
-}
-
-/* NAVIGAZIONE CAROUSEL */
-.nav-buttons {
+/* TITOLO CENTRALE */
+.hero-title {
   position: absolute;
   top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 2s ease-out;
+  padding-top: 100px; /* Distanza dal top per evitare sovrapposizione */
+}
+
+.hero-title a {
+  text-decoration: none;
+}
+
+.hero-title h1 {
+  font-size: 3.8rem;
+  color: var(--text-blue);
+  text-shadow: 0 0 10px var(--text-blue), 0 0 20px var(--text-blue), 0 0 40px #9400d3;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.hero-title p {
+  font-size: 1.3rem;
+  color: var(--text-blue);
+  text-shadow: 0 0 8px var(--text-blue);
+}
+
+/* TESTO "SCORRI PER LA SUA STORIA..." */
+.scroll-indicator {
+  text-align: center;
+  margin-top: 80px;  /* Distanza tra il paragrafo e il testo */
+  font-size: 3.8rem ;  /* Imposta la stessa dimensione del titolo */
+  color: var(--text-blue);
+  text-shadow: 0 0 8px var(--text-blue);
+  letter-spacing: 1px;
   z-index: 2;
 }
 
-.nav-buttons button {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
+/* TESTO SCORREVOLE */
+.scroll-text {
+  max-width: 800px;
+  margin: 120vh auto 5vh auto; /* Posizionato molto in basso */
   padding: 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-blue);
+  text-shadow: 0 0 10px var(--text-blue);
+  font-family: 'Orbitron', sans-serif;
 }
 
-.nav-buttons button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.scroll-text p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-text p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  padding-left: 20px;
+}
+
+header:hover .top-buttons {
+  opacity: 1;
+  visibility: visible;
+}
+
+.top-buttons a {
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--text-blue);
+  padding: 12px 25px;
+  text-decoration: none;
+  border: 2px solid #00ffffaa;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px #00ffff44;
+  backdrop-filter: blur(4px);
+}
+
+.top-buttons a:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  color: #ffffff;
+}
+
+/* SEZIONE COPYRIGHT */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  z-index: 100;
+}
+
+.footer .copyright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.footer .copyright img {
+  width: 30px; /* Imposta la dimensione del logo */
+  height: auto;
+}
+
+.footer .copyright p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-blue);
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px var(--text-blue);
+}
+
+/* ANIMAZIONE */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
 }
