@@ -21,6 +21,7 @@ body {
   overflow-y: auto;
 }
 
+
 #bg-video {
   position: fixed;
   top: 50%;
@@ -142,10 +143,7 @@ header:hover .top-buttons {
   gap: 0.5rem;
   z-index: 100;
 }
-.footer img {
-  width: 24px;
-  height: auto;
-}
+
 
 /* CAROUSEL (pianeti.html) */
 .carousel-container {
@@ -187,7 +185,16 @@ header:hover .top-buttons {
 .planet-name {
   margin-top: 0.5rem;
   font-size: 1.5rem;
-  color: var(--gold);
+  font-family: 'Orbitron', sans-serif;      /* aggiunto per usare lo stesso font */
+  color: var(--text-blue);
+  text-shadow:
+    0 0 8px var(--text-blue),                     /* aggiunto per visibilità */
+    0 0 16px var(--text-blue);
+}
+.planet-name {
+  position: relative;      
+  z-index: 2;              
+  opacity: 1 !important;   /* forza l’opacità piena */
 }
 
 /* PROPORZIONI PLANETARIE */
