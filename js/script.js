@@ -1,39 +1,35 @@
 // js/script.js
 
+// ——— 1) SETUP CAROUSEL AVANZATO ———
 const carousel = document.querySelector('.carousel');
-const cards    = Array.from(document.querySelectorAll('.planet-card'));
+const container = document.querySelector('.carousel-container');
+const cards = Array.from(document.querySelectorAll('.planet-card'));
 
-// Costruiamo una lista degli indici "navigabili": tutti i cards tranne
-// - invisibili (class 'invisible')
-// - il Sole (class 'planet-sole')
+// Crea una lista di indici navigabili: esclude invisibili e il pianeta-sole
 const navigableIndexes = cards
-  .map((c, i) => i)
+  .map((_, i) => i)
   .filter(i => {
     const c = cards[i];
-    if (c.classList.contains('invisible')) return false;
-    if (c.classList.contains('planet-sole')) return false;
-    return true;
+    return !c.classList.contains('invisible')
+        && !c.classList.contains('planet-sole');
   });
 
-// Parametri di navigazione
-let navPos = 0;              // posizione nella lista navigableIndexes
-let index  = navigableIndexes[navPos];  // indice reale nella cards[]
+// Stato di navigazione
+let navPos = 0;                          // posizione dentro navigableIndexes
+let index  = navigableIndexes[navPos];  // indice reale in cards[]
 
 function updateCarousel() {
-  const container = document.querySelector('.carousel-container');
-  const cw        = container.offsetWidth;
-  const cardW     = cw * 0.5; // ogni card è il 50% della viewport
-
-  // Calcola shift per centrare cards[index]
+  const cw    = container.offsetWidth;
+  const cardW = cw * 0.5;               // ogni card occupa il 50% della viewport
+  // shift per centrare la card corrente
   const shift = index * cardW - (cw - cardW) / 2;
   carousel.style.transform = `translateX(-${shift}px)`;
 
-  // Aggiorna classi active
+  // aggiorna classi .active
   cards.forEach(c => c.classList.remove('active'));
   cards[index].classList.add('active');
 }
 
-// Vai al pianeta successivo nella lista navigabile
 function nextPlanet() {
   if (navPos < navigableIndexes.length - 1) {
     navPos++;
@@ -42,7 +38,6 @@ function nextPlanet() {
   }
 }
 
-// Vai al pianeta precedente nella lista navigabile
 function prevPlanet() {
   if (navPos > 0) {
     navPos--;
@@ -51,49 +46,47 @@ function prevPlanet() {
   }
 }
 
-// Apri la pagina del pianeta selezionato
 function openPlanetPage() {
   const card = cards[index];
-  const name = card.querySelector('.planet-name').textContent.toLowerCase();
-  const slug = name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-");
-  window.location.href = `pianeti/${slug}.html`;
+  const name = card.querySelector('.planet-name')
+                   .textContent.toLowerCase()
+                   .normalize("NFD")
+                   .replace(/[\u0300-\u036f]/g, "")
+                   .replace(/\s+/g, "-");
+  window.location.href = `pianeti/${name}.html`;
 }
 
-// Gestione input tastiera
+// Eventi tastiera e click
 window.addEventListener('keydown', e => {
   if      (e.key === 'ArrowRight') nextPlanet();
   else if (e.key === 'ArrowLeft')  prevPlanet();
   else if (e.key === 'Enter')      openPlanetPage();
 });
 
-// All’avvio e al resize, centriamo il pianeta iniziale
+document.getElementById('next')?.addEventListener('click', nextPlanet);
+document.getElementById('prev')?.addEventListener('click', prevPlanet);
+
+// Init su load e aggiorna su resize
 window.addEventListener('load', () => {
-  // posizioniamo navPos su Mercurio (primo navigable)
   navPos = 0;
   index  = navigableIndexes[navPos];
   updateCarousel();
 });
 window.addEventListener('resize', updateCarousel);
 
-// Funzione per mostrare o nascondere i paragrafi singolarmente in base alla posizione
+
+// ——— 2) SCROLL‑TRIGGER PER PARAGRAFI ———
 function toggleParagraphsOnScroll() {
-const paragraphs = document.querySelectorAll('.scroll-text p');
-paragraphs.forEach(paragraph => {
-  const rect = paragraph.getBoundingClientRect();
-  // Se è visibile nella viewport, mostralo
-  if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0) {
-    paragraph.classList.add('visible');
-  } else {
-    paragraph.classList.remove('visible');
-  }
-});
+  const paragraphs = document.querySelectorAll('.scroll-text p');
+  paragraphs.forEach(p => {
+    const rect = p.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0) {
+      p.classList.add('visible');
+    } else {
+      p.classList.remove('visible');
+    }
+  });
 }
 
-// All'avvio, nascondi tutto e verifica visibilità
-window.addEventListener('load', toggleParagraphsOnScroll);
-
-// Aggiorna visibilità a ogni scroll
+window.addEventListener('load',   toggleParagraphsOnScroll);
 window.addEventListener('scroll', toggleParagraphsOnScroll);
