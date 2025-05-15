@@ -1,73 +1,193 @@
-/* reset base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* style.css - unificato per index.html e pianeti.html */
+
+/* RESET BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* VARIABILI */
+:root {
+  --text-blue: #00BFFF;
+  --gold: #FFD700;
+}
 
 /* BODY & SFONDO */
 body {
   background-color: black;
   color: white;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-#bg-video {
-  position: fixed;
-  top:50%; left:50%;
-  width:auto; height:auto;
-  min-width:100%; min-height:100%;
-  transform: translate(-50%,-50%);
-  object-fit:cover;
-  z-index:-1;
+  font-family: 'Orbitron', sans-serif;
+  overflow-y: auto;
 }
 
-/* CAROUSEL */
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4) contrast(1.2);
+}
+
+/* HERO TITLE (index.html) */
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 2s ease-out;
+  padding-top: 100px;
+}
+.hero-title a { text-decoration: none; }
+.hero-title h1 {
+  font-size: 3.8rem;
+  color: var(--text-blue);
+  text-shadow: 0 0 10px var(--text-blue), 0 0 20px var(--text-blue);
+  letter-spacing: 3px;
+}
+.hero-title p {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  color: var(--text-blue);
+  text-shadow: 0 0 8px var(--text-blue);
+}
+
+/* SCROLL INDICATOR (index.html) */
+.scroll-indicator {
+  margin-top: 3rem;
+  font-size: 2rem;
+  color: var(--text-blue);
+  text-shadow: 0 0 8px var(--text-blue);
+}
+
+/* SCROLL TEXT (index.html) */
+.scroll-text {
+  max-width: 800px;
+  margin: 120vh auto 5vh;
+  padding: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-blue);
+  text-shadow: 0 0 10px var(--text-blue);
+}
+.scroll-text p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.scroll-text p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HEADER & NAV BUTTONS */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+.top-buttons {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+}
+header:hover .top-buttons {
+  opacity: 1;
+  visibility: visible;
+}
+.top-buttons a {
+  background: rgba(0,255,255,0.1);
+  color: var(--text-blue);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 2px solid rgba(0,255,255,0.7);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+.top-buttons a:hover {
+  background-color: rgba(0,255,255,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--text-blue);
+  color: white;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  background-color: black;
+  color: var(--text-blue);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 100;
+}
+.footer img {
+  width: 24px;
+  height: auto;
+}
+
+/* CAROUSEL (pianeti.html) */
 .carousel-container {
-  width:100vw; height:100vh;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden; position:relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 .carousel {
-  display:flex; align-items:center;
+  display: flex;
   transition: transform 0.6s ease;
-  will-change: transform;
 }
 .planet-card {
-  position: relative;
-  flex: 0 0 50%; /* metà viewport */
+  flex: 0 0 50%;
   text-align: center;
   opacity: 0.6;
   transform: scale(0.8);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.carousel-container .planet-card {
-  flex: 0 0 50%; /* ogni card occupa metà viewport */
-}
-
-/* invisibile finale */
-.invisible {
-  flex: 0 0 50%;
-  visibility: hidden;
+  transition: 0.4s ease;
 }
 .planet-card.active {
-  opacity:1;
+  opacity: 1;
   transform: scale(1.1);
   filter: brightness(1.4);
   z-index: 1;
 }
-.planet-card video,
-.planet-card img {
+.planet-card.invisible {
+  visibility: hidden;
+}
+.planet-card img,
+.planet-card video {
   width: 100%;
-  height: 70vh;
+  max-height: 70vh;
   object-fit: contain;
   border-radius: 20px;
 }
 .planet-name {
-  margin-top:10px;
-  font-size:2rem;
-  color:#FFD700;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--gold);
 }
-
-/* SPAZI INVISIBILI */
-.invisible { flex:0 0 25%; visibility:hidden; }
 
 /* PROPORZIONI PLANETARIE */
 .planet-sole img        { transform: scale(1.5); }
@@ -80,86 +200,82 @@ body {
 .planet-urano video     { transform: scale(0.8); }
 .planet-nettuno video   { transform: scale(0.75); }
 
+/* PLANET INFO CONTAINER (pianeti.html future) */
 .planet-info-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: stretch;
   justify-content: center;
-  min-height: 450px;
+  margin: 2rem 0;
 }
-
 .planet-table {
-  flex: 1 1 400px;
+  flex: 1 1 300px;
   background-color: #1a1a1a;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
 }
-
 .planet-table table {
   width: 100%;
   border-collapse: collapse;
-  color: #fff;
 }
-
-.planet-table thead th {
-  color: #ffd700;
-  font-weight: bold;
-  font-size: 1.1rem;
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.8rem;
-}
-
 .planet-table th,
 .planet-table td {
-  padding: 0.6rem;
-  text-align: left;
+  padding: 0.5rem;
   border-bottom: 1px solid #333;
+  color: white;
 }
-
+.planet-table thead th {
+  color: var(--gold);
+  border-bottom: 2px solid #333;
+}
 .planet-image {
-  flex: 1 1 400px;
+  flex: 1 1 300px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.planet-image video {
-  width: 100%;
-  max-width: 350px;
+.planet-image video,
+.planet-image img {
+  max-width: 100%;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* ———————— Titolo professionale ———————— */
-header h1 {
-  font-family: 'Merriweather', serif;
-  font-size: 4rem;       /* Titolo più grande */
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+/* CURIOSITÀ */
+.curiosities {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 2rem 0;
 }
-
-/* ———————— Margine a sinistra per la tabella ———————— */
-.planet-table {
-  margin-left: 2rem;     /* crea un piccolo “respiro” a sinistra */
+.curiosities h2 {
+  color: var(--gold);
+  margin-bottom: 1rem;
 }
-
-/* ———————— Allineamento e dimensione pari per tabella e video ———————— */
-.planet-info-container {
-  align-items: stretch;  /* assicura che entrambi crescano alla stessa altezza */
-}
-
-.planet-image {
+.curiosities li {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-right: 2rem;    /* speculare al margin-left della tabella */
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #ddd;
+}
+.curiosities .icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  animation: bounce 1s infinite alternate;
+}
+.curiosities li:hover {
+  color: white;
+}
+.curiosities li:hover .icon {
+  color: white;
 }
 
-.planet-image video {
-  height: 100%;          /* occupa tutta l’altezza disponibile */
-  max-height: none;
+/* ANIMAZIONI */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
