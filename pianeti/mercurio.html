@@ -13,16 +13,24 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Mercurio</h1>
-    <p>Il pianeta più vicino al Sole</p>
-  </header>
+<header>
+  <h1>Mercurio</h1>
+  <div class="icon-nav">
+    <!-- risalgo di una cartella per arrivare a index.html e alla cartella immagini/ -->
+    <a href="../index.html">
+      <img src="../immagini/stella-home.png" alt="Home">
+    </a>
+    <!-- stesso discorso per pianeti.html -->
+    <a href="../pianeti.html">
+      <img src="../immagini/razzo-pianeti.png" alt="Pianeti">
+    </a>
+  </div>
+</header>
 
   <main>
     <div class="planet-info-container">
-      
       <!-- Tabella dati -->
-      <div class="planet-table">
+      <div class="planet-table shifted-left">
         <table>
           <thead>
             <tr><th colspan="2">Dati Principali</th></tr>
@@ -48,28 +56,55 @@
           Il tuo browser non supporta il video.
         </video>
       </div>
-
     </div>
 
-    <!-- Struttura interna -->
-    <div class="structure-image">
-      <img src="C:\Users\cesat\OneDrive\Desktop\yuri\scuola\tormene\visual studio\sistema solare\solar_sistem-1\immagini\struttura di mercurio.png" alt="Struttura interna di Mercurio" />
-    </div>
+    <!-- Struttura interna a due colonne con scrollbar locale -->
+    <section class="structure-container">
+      <div class="structure-image">
+        <img src="../immagini/struttura di mercurio.png" alt="Struttura interna di Mercurio">
+      </div>
+      <div class="structure-text">
+        <h2>Struttura interna di Mercurio</h2>
+        <p>
+          Mercurio ha un nucleo metallico gigantesco che rappresenta circa l’85% del raggio
+          del pianeta, composto principalmente da ferro e nichel. Si ritiene che il nucleo
+          sia ancora in parte liquido, generando un intenso campo magnetico che sorprende
+          gli scienziati per un pianeta di queste dimensioni.
+        </p>
+        <p>
+          Sopra il nucleo c’è un mantello roccioso, ricco di silicati, spesso solo poche centinaia
+          di chilometri. La crosta è sottile e fragile, e impatti meteorici hanno creato profonde
+          scarpate e pianure lisce di lava solidificata.
+        </p>
+        <p>
+          L’assenza di atmosfera estesa provoca escursioni termiche estreme: durante il giorno
+          la temperatura raggiunge i 430 °C, mentre di notte scende a −180 °C. Questi sbalzi
+          causano contrazioni della crosta, generando microsismi misurabili dalle sonde spaziali.
+        </p>
+        <p>
+          Analisi dei dati di Messenger e di BepiColombo hanno rivelato variazioni di densità
+          sotto la superficie, suggerendo depositi di materiali vulcanici o cumuli di detriti
+          da antichi impatti. Studi futuri aiuteranno a capire la dinamica interna del pianeta.
+        </p>
+        <p>
+          In definitiva, Mercurio è un laboratorio naturale di geofisica planetaria: un cuore
+          metallico, un mantello roccioso sottile e una crosta tormentata da contrazioni
+          termiche lo rendono unico nel Sistema Solare.
+        </p>
+      </div>
+    </section>
 
     <!-- Curiosità -->
     <div class="curiosities">
       <h2>Curiosità su Mercurio</h2>
       <ul>
-        <li><span class="icon">⭐</span> Mercurio è il pianeta più vicino al Sole e ha la sua orbita più corta di tutti i pianeti del sistema solare, impiegando solo 88 giorni terrestri per completarla.</li>
-        <li><span class="icon">🌙</span> Non ha satelliti naturali. La sua mancanza di atmosfera gli impedisce di trattenere il calore, causando sbalzi termici estremi tra il giorno e la notte.</li>
-        <li><span class="icon">🌞</span> Il giorno su Mercurio è incredibilmente lungo: dura ben 58,6 giorni terrestri, più della metà del suo anno.</li>
-        <li><span class="icon">💨</span> La temperatura su Mercurio può arrivare fino a 430°C di giorno, mentre di notte scende a -180°C.</li>
-        <li><span class="icon">🌍</span> A causa della sua orbita, Mercurio è spesso visto come uno "specchio" del nostro Sole, mostrando comportamenti simili a un "satellite" orbitante attorno ad esso.</li>
+        <li><span class="icon">⭐</span> Orbita il Sole in soli 88 giorni terrestri, il giro più veloce tra i pianeti.</li>
+        <li><span class="icon">🌙</span> Non possiede satelliti naturali.</li>
+        <li><span class="icon">🌞</span> Il suo giorno solare dura 58,6 giorni terrestri.</li>
+        <li><span class="icon">💨</span> Variazioni termiche da 430 °C a −180 °C.</li>
+        <li><span class="icon">🔭</span> È stato studiato dalle missioni Mariner 10, Messenger e ora BepiColombo.</li>
       </ul>
     </div>
-
-
-    <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
   </main>
 
   <script src="../js/script.js"></script>
