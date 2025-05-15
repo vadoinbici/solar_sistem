@@ -124,12 +124,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Pulsante SATELLITI (link a pagina casuale)
-  if (btnSatelliti) {
-    btnSatelliti.addEventListener('click', function (e) {
-      e.preventDefault();
-      const random = pages[Math.floor(Math.random() * pages.length)];
-      window.location.href = prefix + "satelliti/" + random;
-    });
+// Pulsante SATELLITI → va alla pagina del pianeta attuale
+if (btnSatelliti) {
+  const pathParts = window.location.pathname.split("/");
+  let planetName = "";
+
+  // Estrai il nome del pianeta dalla URL attuale (es: pianeti/giove.html)
+  for (let i = pathParts.length - 1; i >= 0; i--) {
+    const part = pathParts[i];
+    if (part.endsWith(".html") && part !== "index.html") {
+      planetName = part.replace(".html", "").toLowerCase();
+      break;
+    }
   }
+
+  // Se non trovi un pianeta valido, fallback su "giove"
+  if (!planetName || planetName === "pianeti") {
+    planetName = "giove";
+  }
+
+  // Calcola il percorso corretto in base al livello
+  let prefix = "";
+  if (window.location.pathname.includes("/pianeti/")) {
+    prefix = "../menu-satelliti/";
+  } else if (window.location.pathname.includes("/menu-satelliti/")) {
+    prefix = "";
+  } else {
+    prefix = "menu-satelliti/";
+  }
+
+  btnSatelliti.href = `${prefix}${planetName}-satelliti.html`;
+}
+
 });
 
