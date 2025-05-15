@@ -1,54 +1,103 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nettuno</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nettuno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Nettuno</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/nettuno rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Nettuno</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>4.495 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>8º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>164,8 anni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>16,1 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>-200 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>-218 °C</td></tr>
+          <tr><th>Raggio</th><td>24.622 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>14</td></tr>
+          <tr><th>Inclinazione asse</th><td>28,3°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Nettuno -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/nettuno rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di nettuno.png" alt="Struttura interna di Nettuno">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Nettuno</h2>
+      <p>
+        Nettuno è un gigante ghiacciato composto da un piccolo nucleo roccioso circondato
+        da un mantello denso di acqua, ammoniaca e metano in forma ghiacciata. Questo mantello
+        rappresenta la maggior parte della massa del pianeta.
+      </p>
+      <p>
+        La parte esterna è composta da un’atmosfera spessa di idrogeno, elio e metano,
+        che conferisce a Nettuno il suo caratteristico colore blu intenso. Il metano
+        assorbe la luce rossa e riflette quella blu.
+      </p>
+      <p>
+        L’interno del pianeta è estremamente caldo: si ritiene che il nucleo roccioso
+        possa raggiungere temperature di circa 5.000 °C. Questo calore interno alimenta
+        potenti venti e tempeste, come la Macchia Scura, simile alla Grande Macchia Rossa di Giove.
+      </p>
+      <p>
+        A differenza dei giganti gassosi, Nettuno presenta una struttura più solida nei suoi
+        strati intermedi, rendendolo più simile a Urano che a Giove o Saturno. Il suo campo
+        magnetico è inclinato e decentrato rispetto al centro del pianeta.
+      </p>
+      <p>
+        Nettuno è il pianeta più lontano dal Sole e uno dei meno esplorati: la missione
+        Voyager 2 lo ha sorvolato nel 1989, fornendo le uniche immagini ravvicinate disponibili.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Nettuno</h2>
+    <ul>
+      <li><span class="icon">🌊</span> Il suo colore blu intenso è dovuto alla presenza di metano nell'atmosfera.</li>
+      <li><span class="icon">🌪️</span> Ha i venti più veloci del Sistema Solare, fino a 2.100 km/h.</li>
+      <li><span class="icon">🌌</span> È visibile solo con telescopi: fu scoperto matematicamente prima di essere osservato.</li>
+      <li><span class="icon">🛰️</span> Solo Voyager 2 ha visitato Nettuno nel 1989.</li>
+      <li><span class="icon">🌙</span> Il suo satellite più grande, Tritone, ha un'orbita retrograda e potrebbe essere un oggetto catturato.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>

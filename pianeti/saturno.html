@@ -1,54 +1,103 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Saturno</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saturno</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Saturno</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/saturno rotazione.mp4 rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Saturno</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>1.429 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>6º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>29,5 anni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>10,7 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>-130 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>-190 °C</td></tr>
+          <tr><th>Raggio</th><td>58.232 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>145</td></tr>
+          <tr><th>Inclinazione asse</th><td>26,7°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Saturno -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/saturno rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di saturno.png" alt="Struttura interna di Saturno">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Saturno</h2>
+      <p>
+        Saturno è un gigante gassoso composto principalmente da idrogeno ed elio, con una struttura
+        interna stratificata. Al centro si trova un nucleo solido, probabilmente costituito da roccia
+        e ghiaccio, circondato da uno spesso strato di idrogeno metallico liquido.
+      </p>
+      <p>
+        Al di sopra di questo strato si trova uno spesso involucro di idrogeno molecolare, che forma
+        la maggior parte dell’atmosfera visibile del pianeta. Le bande atmosferiche sono meno
+        marcate rispetto a quelle di Giove, ma presenti.
+      </p>
+      <p>
+        Saturno è il pianeta meno denso del Sistema Solare: la sua densità è inferiore a quella dell’acqua,
+        il che significa che potrebbe teoricamente galleggiare.
+      </p>
+      <p>
+        La sua atmosfera contiene nubi di ammoniaca, idrosolfuro di ammonio e acqua. I venti
+        equatoriali possono raggiungere i 1.800 km/h, tra i più rapidi del Sistema Solare.
+      </p>
+      <p>
+        È circondato da un complesso sistema di anelli composti da miliardi di particelle di ghiaccio
+        e roccia, che si estendono per migliaia di chilometri ma sono sottilissimi, spesso solo decine
+        di metri di spessore.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Saturno</h2>
+    <ul>
+      <li><span class="icon">💍</span> Possiede il sistema di anelli più esteso e spettacolare.</li>
+      <li><span class="icon">🪐</span> Ha oltre 140 satelliti confermati, tra cui Titano, più grande di Mercurio.</li>
+      <li><span class="icon">💨</span> I suoi venti equatoriali sono tra i più rapidi del Sistema Solare.</li>
+      <li><span class="icon">🧊</span> Gli anelli sono composti da ghiaccio e polveri che riflettono la luce solare.</li>
+      <li><span class="icon">🚀</span> È stato visitato da Pioneer 11, Voyager 1 e 2 e soprattutto dalla sonda Cassini.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>

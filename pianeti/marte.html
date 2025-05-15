@@ -1,54 +1,96 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marte</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Marte</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/marte rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Marte</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>227,9 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>4º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>687 giorni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>24,6 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>20 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>-140 °C</td></tr>
+          <tr><th>Raggio</th><td>3.389,5 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>2 (Phobos e Deimos)</td></tr>
+          <tr><th>Inclinazione asse</th><td>25,2°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Marte -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/marte rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di marte.png" alt="Struttura interna di Marte">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Marte</h2>
+      <p>
+        Marte ha una struttura interna simile a quella terrestre, con un nucleo, un mantello e una crosta.
+        Il nucleo, probabilmente composto da ferro, zolfo e nichel, è parzialmente liquido.
+        Il mantello sovrastante, ricco di silicati, mostra segni di attività vulcanica passata.
+      </p>
+      <p>
+        La crosta marziana è più spessa rispetto a quella terrestre e mostra evidenze di tettonica, impatti
+        meteoritici e erosione eolica. Le enormi calotte polari di anidride carbonica e ghiaccio d'acqua
+        cambiano con le stagioni.
+      </p>
+      <p>
+        Nonostante le sue piccole dimensioni, Marte ha ospitato un’intensa attività geologica in passato.
+        Olympus Mons, il vulcano più alto del Sistema Solare, e Valles Marineris, un canyon gigantesco,
+        sono testimonianze di questa dinamica.
+      </p>
+      <p>
+        Le missioni come InSight stanno fornendo dati preziosi sulle onde sismiche marziane, rivelando dettagli
+        sempre più precisi sulla sua composizione e evoluzione interna.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Marte</h2>
+    <ul>
+      <li><span class="icon">🛰️</span> È stato esplorato da numerose sonde, tra cui Perseverance e Curiosity.</li>
+      <li><span class="icon">🌋</span> Olympus Mons è alto circa 22 km: il vulcano più grande del Sistema Solare.</li>
+      <li><span class="icon">🧪</span> È il pianeta più studiato per la ricerca della vita passata.</li>
+      <li><span class="icon">💧</span> Tracce di acqua salata sono state individuate sotto la superficie.</li>
+      <li><span class="icon">📡</span> Ha due lune molto piccole: Phobos e Deimos.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
 </body>
 </html>

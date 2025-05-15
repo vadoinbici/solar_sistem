@@ -1,54 +1,99 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terra</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Terra</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/terra rotazione.mp4 rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Terra</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>149,6 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>3º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>365,25 giorni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>24 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>56,7 °C (registrata)</td></tr>
+          <tr><th>Temperatura minima</th><td>-89,2 °C (registrata)</td></tr>
+          <tr><th>Raggio</th><td>6.371 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>1 (Luna)</td></tr>
+          <tr><th>Inclinazione asse</th><td>23,5°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video della Terra -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/terra rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura della terra.png" alt="Struttura interna della Terra">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna della Terra</h2>
+      <p>
+        La Terra è composta da tre principali strati: crosta, mantello e nucleo. Il nucleo interno,
+        solido e composto da ferro e nichel, è circondato da un nucleo esterno liquido che genera il campo magnetico terrestre.
+      </p>
+      <p>
+        Il mantello, spesso circa 2.900 km, è formato da rocce silicatose calde e plastiche che si muovono lentamente,
+        alimentando la tettonica a placche e i vulcani.
+      </p>
+      <p>
+        La crosta, sottile e solida, ospita la vita ed è suddivisa in placche che galleggiano sul mantello.
+        I movimenti di queste placche causano terremoti e la formazione delle montagne.
+      </p>
+      <p>
+        L’atmosfera terrestre è unica nel Sistema Solare: composta principalmente da azoto e ossigeno,
+        permette la vita e protegge dalle radiazioni solari nocive.
+      </p>
+      <p>
+        L’interazione tra nucleo, mantello e crosta crea un sistema dinamico che rende la Terra
+        geologicamente attiva e abitabile, mantenendo un equilibrio delicato tra energia interna e influssi esterni.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità sulla Terra</h2>
+    <ul>
+      <li><span class="icon">🌍</span> È l’unico pianeta conosciuto a ospitare la vita.</li>
+      <li><span class="icon">🌊</span> Circa il 71% della superficie terrestre è coperta d’acqua.</li>
+      <li><span class="icon">🌕</span> Ha un solo satellite naturale: la Luna.</li>
+      <li><span class="icon">🧭</span> Possiede un campo magnetico generato dal nucleo metallico.</li>
+      <li><span class="icon">🌀</span> L’atmosfera protegge da meteoriti e radiazioni solari.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>

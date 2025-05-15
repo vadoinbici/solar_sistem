@@ -90,3 +90,27 @@ function toggleParagraphsOnScroll() {
 
 window.addEventListener('load',   toggleParagraphsOnScroll);
 window.addEventListener('scroll', toggleParagraphsOnScroll);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('btn-satelliti');
+  if (!btn) return;
+
+  const pages = [
+    "luna.html", "io.html", "europa.html", "ganimede.html", 
+    "callisto.html", "titano.html", "tritone.html"
+  ];
+
+  // Determina il livello del path corrente
+  const path = window.location.pathname;
+  const prefix = path.includes("/satelliti/") ? "" :
+                 path.includes("/pianeti/") ? "../" :
+                 path.includes("/pianeti.html") || path.includes("/satelliti.html") ? "" :
+                 "satelliti/";
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const random = pages[Math.floor(Math.random() * pages.length)];
+    window.location.href = prefix + random;
+  });
+});
+

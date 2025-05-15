@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Venere</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venere</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Venere</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/venere rotazione.mp4 rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Venere</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>108,2 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>2º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>225 giorni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>243 giorni terrestri</td></tr>
+          <tr><th>Temperatura massima</th><td>470 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>460 °C</td></tr>
+          <tr><th>Raggio</th><td>6.051,8 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>0</td></tr>
+          <tr><th>Inclinazione asse</th><td>177,4°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Venere -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/venere rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di venere.png" alt="Struttura interna di Venere">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Venere</h2>
+      <p>
+        Venere ha una struttura interna simile a quella della Terra: un nucleo metallico, un mantello
+        roccioso e una crosta solida. Il nucleo, di ferro e nichel, potrebbe essere parzialmente fuso,
+        ma non genera un campo magnetico significativo.
+      </p>
+      <p>
+        Il mantello, composto da silicati, mostra segni di attività vulcanica passata e forse anche presente.
+        La crosta, relativamente sottile, è segnata da vasti altopiani, crateri e formazioni vulcaniche.
+      </p>
+      <p>
+        L'atmosfera di Venere è estremamente densa, composta per il 96% da anidride carbonica e ricca di nubi
+        di acido solforico. Questo crea un potente effetto serra che intrappola il calore.
+      </p>
+      <p>
+        Le pressioni al suolo sono circa 90 volte superiori a quelle terrestri, equivalenti a quelle
+        che si trovano 900 metri sott'acqua sulla Terra.
+      </p>
+      <p>
+        Nonostante la rotazione molto lenta e retrograda, il pianeta ha forti venti ad alta quota
+        che ruotano molto più rapidamente della superficie.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Venere</h2>
+    <ul>
+      <li><span class="icon">🌡️</span> È il pianeta più caldo del Sistema Solare, nonostante non sia il più vicino al Sole.</li>
+      <li><span class="icon">🌫️</span> La sua atmosfera è così spessa che la superficie è invisibile alla luce visibile.</li>
+      <li><span class="icon">🔄</span> Ruota in senso opposto rispetto agli altri pianeti (rotazione retrograda).</li>
+      <li><span class="icon">🌕</span> Ha dimensioni e massa simili a quelle della Terra, da cui il soprannome "pianeta gemello".</li>
+      <li><span class="icon">🚀</span> È stato visitato da numerose sonde, tra cui Venera, Magellan e Akatsuki.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>

@@ -1,54 +1,102 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Giove</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giove</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Giove</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/giove rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Giove</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>778,5 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>5º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>11,86 anni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>9,9 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>-108 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>-145 °C</td></tr>
+          <tr><th>Raggio</th><td>69.911 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>92 (inclusi i 4 Galileiani)</td></tr>
+          <tr><th>Inclinazione asse</th><td>3,13°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Giove -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/giove rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di giove.png" alt="Struttura interna di Giove">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Giove</h2>
+      <p>
+        Giove è un gigante gassoso privo di superficie solida definita. La sua struttura interna comprende
+        un nucleo probabilmente roccioso e metallico, circondato da uno spesso strato di idrogeno metallico
+        liquido, che genera un potente campo magnetico.
+      </p>
+      <p>
+        L’idrogeno in forma liquida diventa metallico a pressioni estreme, permettendo il passaggio di corrente
+        elettrica. Questo contribuisce alla formazione del campo magnetico più potente tra tutti i pianeti del Sistema Solare.
+      </p>
+      <p>
+        Al di sopra si trova uno strato di idrogeno molecolare e elio, con bande di nuvole e tempeste,
+        tra cui la Grande Macchia Rossa, un gigantesco vortice in attività da secoli.
+      </p>
+      <p>
+        Nonostante la composizione gassosa, la gravità schiacciante e la pressione crescente verso il centro
+        rendono Giove uno dei corpi più densi tra i giganti gassosi. Le sue emissioni radio e onde magnetiche
+        sono studiate da missioni come Juno.
+      </p>
+      <p>
+        La comprensione della sua struttura è fondamentale per studiare la formazione dei pianeti giganti e
+        l’evoluzione del Sistema Solare.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Giove</h2>
+    <ul>
+      <li><span class="icon">🌩️</span> La Grande Macchia Rossa è una tempesta più grande della Terra.</li>
+      <li><span class="icon">🛰️</span> La sonda Juno sta esplorando la sua atmosfera e struttura interna.</li>
+      <li><span class="icon">🌙</span> Possiede oltre 90 satelliti naturali, tra cui Io, Europa, Ganimede e Callisto.</li>
+      <li><span class="icon">🌀</span> Ruota su se stesso in meno di 10 ore, il giorno più breve tra i pianeti.</li>
+      <li><span class="icon">💫</span> Il suo campo magnetico è il più intenso del Sistema Solare.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>

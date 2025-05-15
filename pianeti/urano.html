@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Urano</title> <!-- Cambia titolo -->
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #FFD700;
-      text-align: center;
-    }
-    .planet-info {
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
-    .planet-image {
-      display: block;
-      margin: 20px auto;
-      width: 60%;
-      max-width: 400px;
-    }
-    a.back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urano</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="immagini/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <h1>Urano</h1> <!-- Cambia qui -->
-  <video src="../immagini/rotazione pianeti/urano rotazione.mp4 rotazione.mp4" autoplay muted loop playsinline class="planet-image" alt="Mercurio"></video>
-  
-  <div class="planet-info">
-    <p>
-      Questa è la pagina di Mercurio. Inserisci qui dati, curiosità e immagini aggiuntive sul pianeta.
-    </p>
+<header>
+  <div class="nav-destra">
+    <a href="../../index.html"><span>🏠</span> Home</a>
+    <a href="../../pianeti.html"><span>🪐</span> Pianeti</a>
+    <a href="../luna.html" id="btn-satelliti"><span>🛰️</span> Satelliti</a>
+  </div>
+</header>
+
+<main>
+  <div class="planet-info-container">
+    <div class="planet-table shifted-left">
+      <h2 class="planet-title">Urano</h2>
+
+      <table>
+        <thead>
+          <tr><th colspan="2">Dati Principali</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Distanza dal Sole</th><td>2.871 milioni di km</td></tr>
+          <tr><th>Ordine dal Sole</th><td>7º pianeta</td></tr>
+          <tr><th>Durata dell'anno</th><td>84 anni terrestri</td></tr>
+          <tr><th>Durata del giorno</th><td>17,2 ore</td></tr>
+          <tr><th>Temperatura massima</th><td>-195 °C</td></tr>
+          <tr><th>Temperatura minima</th><td>-224 °C</td></tr>
+          <tr><th>Raggio</th><td>25.362 km</td></tr>
+          <tr><th>Satelliti naturali</th><td>27</td></tr>
+          <tr><th>Inclinazione asse</th><td>97,8°</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Video di Urano -->
+    <div class="planet-image">
+      <video autoplay muted loop playsinline>
+        <source src="../immagini/rotazione pianeti/urano rotazione.mp4" type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
+    </div>
   </div>
 
-  <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  <!-- Struttura interna a due colonne con scrollbar locale -->
+  <section class="structure-container">
+    <div class="structure-image">
+      <img src="../immagini/struttura di urano.png" alt="Struttura interna di Urano">
+    </div>
+    <div class="structure-text">
+      <h2>Struttura interna di Urano</h2>
+      <p>
+        Urano è un gigante ghiacciato con una struttura composta da tre strati principali: un piccolo
+        nucleo roccioso, un mantello ghiacciato e un’atmosfera estesa. Il nucleo è composto da silicati e
+        metalli, mentre il mantello contiene acqua, ammoniaca e metano in forma ghiacciata.
+      </p>
+      <p>
+        L'atmosfera di Urano è composta principalmente da idrogeno e elio, con una buona quantità
+        di metano che assorbe la luce rossa e riflette quella blu-verde, conferendo al pianeta
+        il suo colore caratteristico.
+      </p>
+      <p>
+        Urano è unico nel Sistema Solare per la sua estrema inclinazione assiale di quasi 98 gradi:
+        ruota praticamente "sdraiato" sul fianco. Questo causa stagioni estreme che durano decenni.
+      </p>
+      <p>
+        Nonostante le sue dimensioni, Urano emette pochissimo calore interno: è uno dei pianeti
+        più freddi, con temperature minime fino a -224 °C, forse a causa di un impatto primordiale
+        che ne ha modificato la struttura.
+      </p>
+      <p>
+        La sua magnetosfera è anch’essa insolita: inclinata e decentrata, varia notevolmente durante
+        la rotazione del pianeta, generando variazioni nel campo magnetico rilevabili anche a grande distanza.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curiosità -->
+  <div class="curiosities">
+    <h2>Curiosità su Urano</h2>
+    <ul>
+      <li><span class="icon">🌀</span> Ruota su un lato: il suo asse è inclinato di quasi 98°.</li>
+      <li><span class="icon">🧊</span> È classificato come gigante ghiacciato, diverso dai giganti gassosi.</li>
+      <li><span class="icon">🌫️</span> Ha un'atmosfera composta da idrogeno, elio e metano.</li>
+      <li><span class="icon">🔭</span> Fu scoperto da William Herschel nel 1781, il primo scoperto con un telescopio.</li>
+      <li><span class="icon">🛰️</span> Solo Voyager 2 ha visitato Urano nel 1986.</li>
+    </ul>
+  </div>
+</main>
+
+<script src="../js/script.js"></script>
+
 </body>
 </html>
