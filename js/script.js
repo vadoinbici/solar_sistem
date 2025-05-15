@@ -92,25 +92,44 @@ window.addEventListener('load',   toggleParagraphsOnScroll);
 window.addEventListener('scroll', toggleParagraphsOnScroll);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('btn-satelliti');
-  if (!btn) return;
+  const btnHome      = document.getElementById('btn-home');
+  const btnPianeti   = document.getElementById('btn-pianeti');
+  const btnSatelliti = document.getElementById('btn-satelliti');
 
   const pages = [
     "luna.html", "io.html", "europa.html", "ganimede.html", 
     "callisto.html", "titano.html", "tritone.html"
   ];
 
-  // Determina il livello del path corrente
   const path = window.location.pathname;
-  const prefix = path.includes("/satelliti/") ? "" :
-                 path.includes("/pianeti/") ? "../" :
-                 path.includes("/pianeti.html") || path.includes("/satelliti.html") ? "" :
-                 "satelliti/";
 
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    const random = pages[Math.floor(Math.random() * pages.length)];
-    window.location.href = prefix + random;
-  });
+  // Determina il livello del path per impostare i link corretti
+  let prefix = "";
+  if (path.includes("/satelliti/")) {
+    prefix = "../";
+  } else if (path.includes("/pianeti/")) {
+    prefix = "../";
+  } else {
+    prefix = ""; // index o root
+  }
+
+  // Pulsante HOME
+  if (btnHome) {
+    btnHome.href = prefix + "index.html";
+  }
+
+  // Pulsante PIANETI
+  if (btnPianeti) {
+    btnPianeti.href = prefix + "pianeti.html";
+  }
+
+  // Pulsante SATELLITI (link a pagina casuale)
+  if (btnSatelliti) {
+    btnSatelliti.addEventListener('click', function (e) {
+      e.preventDefault();
+      const random = pages[Math.floor(Math.random() * pages.length)];
+      window.location.href = prefix + "satelliti/" + random;
+    });
+  }
 });
 
