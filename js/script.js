@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pages = [
     "luna.html", "io.html", "europa.html", "ganimede.html", 
-    "callisto.html", "titano.html", "tritone.html"
+    "callisto.html", "titano.html"
   ];
 
   const path = window.location.pathname;
