@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mercurio</title>
+
+  <!-- Google Font per i titoli -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mercurio</h1>
+    <p>Il pianeta più vicino al Sole</p>
+  </header>
+
+  <main>
+    <div class="planet-info-container">
+      
+      <!-- Tabella dati -->
+      <div class="planet-table">
+        <table>
+          <thead>
+            <tr><th colspan="2">Dati Principali</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Distanza dal Sole</th><td>57,9 milioni di km</td></tr>
+            <tr><th>Ordine dal Sole</th><td>1º pianeta</td></tr>
+            <tr><th>Durata dell'anno</th><td>88 giorni terrestri</td></tr>
+            <tr><th>Durata del giorno</th><td>58,6 giorni terrestri</td></tr>
+            <tr><th>Temperatura massima</th><td>430 °C</td></tr>
+            <tr><th>Temperatura minima</th><td>-180 °C</td></tr>
+            <tr><th>Raggio</th><td>2.439,7 km</td></tr>
+            <tr><th>Satelliti naturali</th><td>0</td></tr>
+            <tr><th>Inclinazione asse</th><td>0,03°</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Video di Mercurio -->
+      <div class="planet-image">
+        <video autoplay muted loop playsinline>
+          <source src="../immagini/rotazione pianeti/mercurio rotazione.mp4" type="video/mp4" />
+          Il tuo browser non supporta il video.
+        </video>
+      </div>
+
+    </div>
+
+    <!-- Struttura interna -->
+    <div class="structure-image">
+      <img src="../immagini/struttura/mercurio-struttura.jpg" alt="Struttura interna di Mercurio" />
+    </div>
+
+    <!-- Curiosità -->
+    <div class="curiosities">
+      <h2>Curiosità</h2>
+      <p>
+        Mercurio non ha un’atmosfera significativa, provocando sbalzi termici estremi tra il giorno e la notte. 
+        Un giorno su Mercurio dura 58,6 giorni terrestri, più di metà del suo anno!
+      </p>
+    </div>
+
+    <a href="../index.html" class="back-link">⬅ Torna al carosello</a>
+  </main>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

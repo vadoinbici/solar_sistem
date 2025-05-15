@@ -1,0 +1,165 @@
+/* reset base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* BODY & SFONDO */
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+#bg-video {
+  position: fixed;
+  top:50%; left:50%;
+  width:auto; height:auto;
+  min-width:100%; min-height:100%;
+  transform: translate(-50%,-50%);
+  object-fit:cover;
+  z-index:-1;
+}
+
+/* CAROUSEL */
+.carousel-container {
+  width:100vw; height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden; position:relative;
+}
+.carousel {
+  display:flex; align-items:center;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+.planet-card {
+  position: relative;
+  flex: 0 0 50%; /* metà viewport */
+  text-align: center;
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.carousel-container .planet-card {
+  flex: 0 0 50%; /* ogni card occupa metà viewport */
+}
+
+/* invisibile finale */
+.invisible {
+  flex: 0 0 50%;
+  visibility: hidden;
+}
+.planet-card.active {
+  opacity:1;
+  transform: scale(1.1);
+  filter: brightness(1.4);
+  z-index: 1;
+}
+.planet-card video,
+.planet-card img {
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+  border-radius: 20px;
+}
+.planet-name {
+  margin-top:10px;
+  font-size:2rem;
+  color:#FFD700;
+}
+
+/* SPAZI INVISIBILI */
+.invisible { flex:0 0 25%; visibility:hidden; }
+
+/* PROPORZIONI PLANETARIE */
+.planet-sole img        { transform: scale(1.5); }
+.planet-mercurio video  { transform: scale(0.4); }
+.planet-venere video    { transform: scale(0.85); }
+.planet-terra video     { transform: scale(0.9); }
+.planet-marte video     { transform: scale(0.5); }
+.planet-giove video     { transform: scale(1.4); }
+.planet-saturno video   { transform: scale(1.2); }
+.planet-urano video     { transform: scale(0.8); }
+.planet-nettuno video   { transform: scale(0.75); }
+
+.planet-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 450px;
+}
+
+.planet-table {
+  flex: 1 1 400px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.planet-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.planet-table thead th {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.8rem;
+}
+
+.planet-table th,
+.planet-table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.planet-image {
+  flex: 1 1 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planet-image video {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ———————— Titolo professionale ———————— */
+header h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 4rem;       /* Titolo più grande */
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+/* ———————— Margine a sinistra per la tabella ———————— */
+.planet-table {
+  margin-left: 2rem;     /* crea un piccolo “respiro” a sinistra */
+}
+
+/* ———————— Allineamento e dimensione pari per tabella e video ———————— */
+.planet-info-container {
+  align-items: stretch;  /* assicura che entrambi crescano alla stessa altezza */
+}
+
+.planet-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-right: 2rem;    /* speculare al margin-left della tabella */
+}
+
+.planet-image video {
+  height: 100%;          /* occupa tutta l’altezza disponibile */
+  max-height: none;
+}
+
