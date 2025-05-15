@@ -426,3 +426,85 @@ header:hover .nav-destra {
   box-shadow: 0 0 20px var(--text-blue);
   color: white;
 }
+
+/* === VERSIONE MOBILE === */
+@media screen and (max-width: 768px) {
+
+  /* NAV-DESRA diventa barra fissa orizzontale sempre visibile in cima */
+  .nav-destra {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 0.5rem 1rem;
+    justify-content: center;
+    gap: 0.8rem;
+    z-index: 10000;
+  }
+
+  .nav-destra a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+
+  /* Per non nascondere contenuti sotto navbar fissa */
+  body {
+    padding-top: 3.8rem;
+  }
+
+  /* Layout principale: colonne diventano verticali */
+  .planet-info-container,
+  .structure-container {
+    flex-direction: column !important;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .planet-table,
+  .planet-image,
+  .structure-image,
+  .structure-text {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* Immagini e video adattano larghezza */
+  .planet-image img,
+  .planet-image video,
+  .structure-image img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px;
+  }
+
+  /* Testi più leggibili */
+  h2 {
+    font-size: 1.4rem !important;
+  }
+
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Carousel: planet-card prende tutta la larghezza */
+  .planet-card {
+    flex: 0 0 90% !important;
+  }
+
+  /* Riduci padding del footer */
+  .footer {
+    padding: 0.3rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Rimuovi hover per top-buttons (sono nascosti su mobile) */
+  header:hover .top-buttons {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
