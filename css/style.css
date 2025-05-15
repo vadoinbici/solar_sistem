@@ -1,26 +1,22 @@
-/* style.css - unificato per index.html e pianeti.html */
 
-/* RESET BASE */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* VARIABILI */
+
 :root {
   --text-blue: #00BFFF;
 }
 
 
 
-/* Applica il font al body o dove serve */
 body {
   font-family: 'Orbitron', sans-serif;
 }
 
 
-/* BODY & SFONDO */
 body {
   background-color: black;
   color: white;
@@ -43,7 +39,7 @@ body {
   filter: brightness(0.4) contrast(1.2);
 }
 
-/* HERO TITLE (index.html) */
+
 .hero-title {
   position: absolute;
   top: 50%;
@@ -68,14 +64,13 @@ body {
   text-shadow: 0 0 8px var(--text-blue);
 }
 
-/* SCROLL INDICATOR (index.html) */
 .scroll-indicator {
   margin-top: 3rem;
   font-size: 2rem;
   color: var(--text-blue);
 }
 
-/* SCROLL TEXT (index.html) */
+
 .scroll-text {
   max-width: 800px;
   margin: 120vh auto 5vh;
@@ -94,14 +89,13 @@ body {
   transform: translateY(0);
 }
 
-/* HEADER & NAV BUTTONS */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem 2rem;
-  min-height: 60px; /* area hover attiva */
+  min-height: 60px; 
   z-index: 1000;
 }
 .top-buttons {
@@ -136,7 +130,7 @@ header:hover .top-buttons {
 }
 
 
-/* FOOTER */
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -153,7 +147,7 @@ header:hover .top-buttons {
 }
 
 
-/* CAROUSEL (pianeti.html) */
+
 .carousel-container {
   width: 100vw;
   height: 100vh;
@@ -193,16 +187,16 @@ header:hover .top-buttons {
 .planet-name {
   margin-top: 0.5rem;
   font-size: 1.5rem;
-  font-family: 'Orbitron', sans-serif;      /* aggiunto per usare lo stesso font */
+  font-family: 'Orbitron', sans-serif;      
   color: var(--text-blue);
   text-shadow:
-    0 0 8px var(--text-blue),                     /* aggiunto per visibilità */
+    0 0 8px var(--text-blue),                     
     0 0 16px var(--text-blue);
 }
 .planet-name {
   position: relative;      
   z-index: 2;              
-  opacity: 1 !important;   /* forza l’opacità piena */
+  opacity: 1 !important;   
 }
 .planet-title {
   text-align: center;
@@ -213,7 +207,7 @@ header:hover .top-buttons {
 }
 
 
-/* PROPORZIONI PLANETARIE */
+
 .planet-sole img        { transform: scale(1.5); }
 .planet-mercurio video  { transform: scale(0.4); }
 .planet-venere video    { transform: scale(0.85); }
@@ -224,7 +218,6 @@ header:hover .top-buttons {
 .planet-urano video     { transform: scale(0.8); }
 .planet-nettuno video   { transform: scale(0.75); }
 
-/* PLANET INFO CONTAINER (per eventuale pagina dettagli) */
 .planet-info-container {
   display: flex;
   flex-wrap: wrap;
@@ -233,9 +226,9 @@ header:hover .top-buttons {
   justify-content: center;
   margin: 2rem 0;
 }
-/* === TABELLA PIÙ PROFESSIONALE === */
+
 .planet-table {
-  margin: 0;               /* togli margini eccessivi */
+  margin: 0;               
   padding: 1rem;
   background-color: #1a1a1a;
   border-radius: 8px;
@@ -245,7 +238,7 @@ header:hover .top-buttons {
 .planet-table table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 0.5rem;   /* spazio verticale fra le righe */
+  border-spacing: 0 0.5rem;   
 }
 
 .planet-table th {
@@ -267,13 +260,13 @@ header:hover .top-buttons {
   color: #ddd;
 }
 
-/* Aggiungiamo un bordo orizzontale leggero */
+
 .planet-table tr + tr td {
   border-top: 1px solid #333;
 }
 
 .planet-table.shifted-left {
-  margin-left: 12rem;  /* o quanto preferisci */
+  margin-left: 12rem; 
 }
 
 .planet-image {
@@ -299,10 +292,10 @@ header:hover .top-buttons {
   width: 100%;
   height: 100%;
   z-index: 10;
-  text-indent: -9999px; /* nasconde il testo, se ce n'è */
+  text-indent: -9999px; 
 }
 
-/* CURIOSITÀ */
+
 .curiosities {
   background-color: #222;
   border-radius: 10px;
@@ -331,7 +324,6 @@ header:hover .top-buttons {
   color: white;
 }
 
-/* ANIMAZIONI */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -341,7 +333,7 @@ header:hover .top-buttons {
   to   { transform: translateY(-5px); }
 }
 
- /* === STRUTTURA INTERNA DUE COLONNE + SCROLL === */
+
 .structure-container {
   display: flex;
   flex-wrap: wrap;
@@ -353,7 +345,7 @@ header:hover .top-buttons {
 
 .structure-text {
   flex: 1 1 350px;
-  max-height: 450px;      /* scroll visibile */
+  max-height: 450px;     
   overflow-y: auto;
   padding: 1.5rem;
   background-color: #111;
@@ -375,7 +367,7 @@ header:hover .top-buttons {
   margin-bottom: 1rem;
 }
 
-/* Colonna immagine */
+
 .structure-image {
   flex: 1 1 350px;
   display: flex;
@@ -427,10 +419,9 @@ header:hover .nav-destra {
   color: white;
 }
 
-/* === VERSIONE MOBILE === */
+
 @media screen and (max-width: 768px) {
 
-  /* NAV-DESRA diventa barra fissa orizzontale sempre visibile in cima */
   .nav-destra {
     position: fixed !important;
     top: 0;
@@ -443,6 +434,7 @@ header:hover .nav-destra {
     justify-content: center;
     gap: 0.8rem;
     z-index: 10000;
+    flex-wrap: wrap;
   }
 
   .nav-destra a {
@@ -451,12 +443,39 @@ header:hover .nav-destra {
     border-radius: 30px;
   }
 
-  /* Per non nascondere contenuti sotto navbar fissa */
+  .top-buttons {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: fixed;
+    top: 3.8rem;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 0.5rem 1rem;
+    gap: 0.8rem;
+    z-index: 10000;
+    flex-wrap: wrap;
+  }
+
+  .top-buttons a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+
+  header:hover .top-buttons {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+
+
+
   body {
     padding-top: 3.8rem;
   }
 
-  /* Layout principale: colonne diventano verticali */
   .planet-info-container,
   .structure-container {
     flex-direction: column !important;
@@ -472,7 +491,6 @@ header:hover .nav-destra {
     width: 100% !important;
   }
 
-  /* Immagini e video adattano larghezza */
   .planet-image img,
   .planet-image video,
   .structure-image img {
@@ -481,7 +499,6 @@ header:hover .nav-destra {
     border-radius: 10px;
   }
 
-  /* Testi più leggibili */
   h2 {
     font-size: 1.4rem !important;
   }
@@ -491,20 +508,73 @@ header:hover .nav-destra {
     line-height: 1.4 !important;
   }
 
-  /* Carousel: planet-card prende tutta la larghezza */
   .planet-card {
     flex: 0 0 90% !important;
   }
 
-  /* Riduci padding del footer */
+
   .footer {
     padding: 0.3rem 1rem !important;
     font-size: 0.8rem !important;
   }
 
-  /* Rimuovi hover per top-buttons (sono nascosti su mobile) */
+
   header:hover .top-buttons {
     opacity: 0 !important;
     visibility: hidden !important;
   }
+
+
+  .planet-table {
+    overflow-x: auto;
+    padding: 1rem 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .planet-table table {
+    min-width: 400px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .planet-table th,
+  .planet-table td {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .planet-table.shifted-left {
+    margin-left: 0 !important;
+  }
+  .carousel-container {
+  height: auto;
+  padding: 2rem 0;
+  flex-direction: column;
+}
+
+.carousel {
+  flex-direction: column;
+  align-items: center;
+}
+
+.planet-card {
+  width: 90% !important;
+  margin: 1rem 0;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.hero-title {
+  position: static;
+  transform: none;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.hero-title h1 {
+  font-size: 2rem;
+}
+.hero-title p {
+  font-size: 1rem;
+}
+
 }
