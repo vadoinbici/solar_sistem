@@ -158,10 +158,6 @@ header:hover .top-buttons {
   padding-left: 20px;
 }
 
-.footer .copyright img {
-  width: 30px; /* Imposta la dimensione del logo */
-  height: auto;
-}
 
 .footer .copyright p {
   margin: 0;

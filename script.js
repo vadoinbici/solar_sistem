@@ -17,4 +17,3 @@ window.addEventListener('load', toggleParagraphsOnScroll);
 
 // Aggiorna visibilità a ogni scroll
 window.addEventListener('scroll', toggleParagraphsOnScroll);
-                 
