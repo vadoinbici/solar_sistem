@@ -588,12 +588,12 @@ header:hover .nav-destra {
 .top-buttons {
   margin-bottom: 1rem;
 }
-/* Nascondi il carosello su mobile */
+
 .carousel-container {
   display: none !important;
 }
 
-/* Mostra la lista dei pianeti su mobile */
+
 .planet-list-mobile {
   display: block;
   list-style: none;
@@ -624,7 +624,7 @@ header:hover .nav-destra {
   color: white;
 }
 .planet-list-mobile {
-  margin-top: 80px; /* o padding-top */
+  margin-top: 80px; 
 }
 
 
